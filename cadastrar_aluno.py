@@ -1,54 +1,44 @@
-alunos = []
-
-def cadastrar_aluno():
+def cadastrar_aluno(dados):
     while True:
-        nome = input("Nome do aluno: ").strip().lower()
-        sobrenome = input("Sobrenome: ").strip().lower()
+        nome = input("nome do aluno: ").strip().lower()
+        sobrenome = input("sobrenome: ").strip().lower()
 
         if nome == "" or sobrenome == "":
-            print("Campo vazio.")
+            print("campo vazio")
             continue
 
         if not nome.isalpha() or not sobrenome.isalpha():
-            print("Nome inválido.")
+            print("nome inválido")
             continue
 
         break
 
     while True:
-        idade = input("Idade: ").strip()
+        idade = input("idade: ").strip()
 
         if idade == "":
-            print("Campo vazio.")
+            print("campo vazio")
             continue
 
         if not idade.isdigit():
-            print("Digite apenas números.")
-            continue
-
-        idade = int(idade)
-
-        if idade <= 0:
-            print("Idade inválida.")
+            print("digite apenas números")
             continue
 
         break
 
     while True:
-        print("Opções de turma:")
-        print("1 a 9")
-
-        turma = input("Turma: ").strip()
+        turma = input("turma: ")
 
         if turma in ["1","2","3","4","5","6","7","8","9"]:
-            print("Turma cadastrada!")
             break
         else:
-            print("Turma inválida.")
+            print("turma inválida")
 
-    alunos.append({
+    dados["alunos"].append({
         "nome": nome,
         "sobrenome": sobrenome,
         "idade": idade,
         "turma": turma
     })
+
+    print("Aluno cadastrado!")
