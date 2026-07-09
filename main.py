@@ -1,9 +1,13 @@
+from dados import carregar, salvar
 from cadastrar_aluno import cadastrar_aluno
 from listar_aluno import listar_aluno
-from notas import cadastrar_notas
-from listar_notas import listar_notas
 from editar_aluno import editar_aluno
 from remover_aluno import remover_aluno
+from notas import cadastrar_notas
+from listar_notas import listar_notas
+from situacao_aluno import calcular_situacao
+
+dados = carregar()
 
 while True:
     print("\n1 - Cadastrar aluno")
@@ -12,29 +16,53 @@ while True:
     print("4 - listar notas")
     print("5 - editar aluno")
     print("6 - remover aluno")
-    print("7 - Sair")
+    print("7 - média e situação")
+    print("8 - apagar todos os dados")
+    print("9 - Sair")
 
     opcao = input("Escolha: ")
 
     if opcao == "1":
-        cadastrar_aluno()
+        cadastrar_aluno(dados)
+        salvar(dados)
 
     elif opcao == "2":
-        listar_aluno()
+        listar_aluno(dados)
+        salvar(dados)
 
     elif opcao == "3":
-        cadastrar_notas()
+        cadastrar_notas(dados)
+        salvar(dados)
 
     elif opcao == "4":
-        listar_notas()
+        listar_notas(dados)
+        salvar(dados)
 
     elif opcao =="5":
-        editar_aluno()
+        editar_aluno(dados)
+        salvar(dados)
 
     elif opcao == "6":
-        remover_aluno()
+        remover_aluno(dados)
+        salvar(dados)
+
 
     elif opcao == "7":
+        calcular_situacao(dados)
+        salvar(dados)
+
+    elif opcao == "8":
+        dados["alunos"] = []
+        dados["notas"] = []
+        dados["medias"] = []
+        dados["situacoes"] = []
+        salvar(dados)
+
+        print("Todos os dados foram apagados!")
+
+    elif opcao == "9":
+        salvar(dados)
+        print("Dados salvos!")
         break
 
 
@@ -61,6 +89,8 @@ while True:
             break  
 
         elif voltar == "2":
+            salvar(dados)
+            print("dados salvos")
             exit()  
 
         else:
