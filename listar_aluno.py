@@ -1,10 +1,9 @@
-from cadastrar_aluno import alunos
+def listar_aluno(dados):
 
-def listar_aluno():
-    if len(alunos) == 0:
+    if len(dados["alunos"]) == 0:
         print("\nNenhum aluno cadastrado.")
     else:
-        for aluno in alunos:
+        for aluno in dados["alunos"]:
             print("\nnome:", aluno["nome"])
             print("sobrenome:", aluno["sobrenome"])
             print("turma:", aluno["turma"])
