@@ -1,16 +1,20 @@
-from cadastrar_aluno import alunos
+def remover_aluno(dados):
 
-def remover_aluno():
-
-    if len(alunos) == 0:
+    if len(dados["alunos"]) == 0:
         print("Nenhum aluno cadastrado.")
         return
 
-    nome = input("Digite o nome do aluno que deseja remover: ").lower()
+    nome = input("Digite o nome do aluno que deseja remover: ").strip().lower()
 
-    for aluno in alunos:
+    for aluno in dados["alunos"]:
         if aluno["nome"] == nome:
-            alunos.remove(aluno)
+            dados["alunos"].remove(aluno)
+
+            dados["notas"] = [
+                nota for nota in dados["notas"]
+                if nota["nome"] != nome
+            ]
+
             print("Aluno removido com sucesso!")
             return
 
