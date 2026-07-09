@@ -1,6 +1,32 @@
 {
-    "alunos": [],
-    "notas": [],
+    "alunos": [
+        {
+            "nome": "caio",
+            "sobrenome": "adada",
+            "idade": "15",
+            "turma": "9"
+        },
+        {
+            "nome": "bruno",
+            "sobrenome": "martins",
+            "idade": "23",
+            "turma": "9"
+        }
+    ],
+    "notas": [
+        {
+            "nome": "caio",
+            "materia": "Desenvolvimento de Sistemas",
+            "nota1": 10.0,
+            "nota2": 10.0
+        },
+        {
+            "nome": "bruno",
+            "materia": "Desenvolvimento de Sistemas",
+            "nota1": 10.0,
+            "nota2": 10.0
+        }
+    ],
     "medias": [],
     "situacoes": []
 }
