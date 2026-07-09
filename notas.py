@@ -1,6 +1,26 @@
-notas = []
+def cadastrar_notas(dados):
 
-def cadastrar_notas():
+    while True:
+        nome = input("Nome do aluno: ").strip().lower()
+
+        if nome == "":
+            print("Nome vazio.")
+            continue
+
+        aluno_existe = False
+
+        for aluno in dados["alunos"]:
+            if aluno["nome"] == nome:
+                aluno_existe = True
+                break
+
+        if aluno_existe:
+            break
+        else:
+            print("Aluno não encontrado. Cadastre o aluno primeiro.")
+            return
+
+
     while True:
         print("\nMatérias:")
         print("1 - Desenvolvimento de Sistemas")
@@ -12,14 +32,18 @@ def cadastrar_notas():
         if materia == "1":
             materia = "Desenvolvimento de Sistemas"
             break
+
         elif materia == "2":
             materia = "Banco de Dados"
             break
+
         elif materia == "3":
             materia = "Requisitos"
             break
+
         else:
             print("Matéria inválida.")
+
 
     while True:
         nota1 = input("Digite a nota 1: ").strip()
@@ -31,8 +55,10 @@ def cadastrar_notas():
                 break
             else:
                 print("A nota deve estar entre 0 e 10.")
+
         except ValueError:
             print("Digite apenas números.")
+
 
     while True:
         nota2 = input("Digite a nota 2: ").strip()
@@ -44,10 +70,13 @@ def cadastrar_notas():
                 break
             else:
                 print("A nota deve estar entre 0 e 10.")
+
         except ValueError:
             print("Digite apenas números.")
 
-    notas.append({
+
+    dados["notas"].append({
+        "nome": nome,
         "materia": materia,
         "nota1": nota1,
         "nota2": nota2
