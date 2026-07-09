@@ -1,10 +1,6 @@
 {
-    "nome": "Ana",
-    "idade": 28,
-    "ativo": true,
-    "habilidades": [
-        "python",
-        "java"
-    ]
+    "alunos": [],
+    "notas": [],
+    "medias": [],
+    "situacoes": []
 }
-
