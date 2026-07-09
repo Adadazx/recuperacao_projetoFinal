@@ -1,3 +1,5 @@
+notas = []
+
 def cadastrar_notas():
     while True:
         print("\nMatérias:")
@@ -45,7 +47,10 @@ def cadastrar_notas():
         except ValueError:
             print("Digite apenas números.")
 
-    print("\nMatéria:", materia)
-    print("Nota 1:", nota1)
-    print("Nota 2:", nota2)
+    notas.append({
+        "materia": materia,
+        "nota1": nota1,
+        "nota2": nota2
+    })
 
+    print("\nNota cadastrada com sucesso!")
