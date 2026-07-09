@@ -1,21 +1,19 @@
-from cadastrar_aluno import alunos
+def editar_aluno(dados):
+    while True:
+        if len(dados["alunos"]) == 0:
+            print("Nenhum aluno cadastrado.")
+            continue
 
-def editar_aluno():
+        nome = input("Digite o nome do aluno que deseja editar: ").lower()
 
-    if len(alunos) == 0:
-        print("Nenhum aluno cadastrado.")
-        return
+        for aluno in dados["alunos"]:
+            if aluno["nome"] == nome:
 
-    nome = input("Digite o nome do aluno que deseja editar: ").lower()
+                aluno["sobrenome"] = input("Novo sobrenome: ").lower()
+                aluno["idade"] = input("Nova idade: ")
+                aluno["turma"] = input("Nova turma: ")
 
-    for aluno in alunos:
-        if aluno["nome"] == nome:
+                print("Aluno editado com sucesso!")
+                return
 
-            aluno["sobrenome"] = input("Novo sobrenome: ").lower()
-            aluno["idade"] = input("Nova idade: ")
-            aluno["turma"] = input("Nova turma: ")
-
-            print("Aluno editado com sucesso!")
-            return
-
-    print("Aluno não encontrado.")
+        print("Aluno não encontrado.")
